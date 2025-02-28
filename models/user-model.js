@@ -1,12 +1,13 @@
 const mongoose=require("mongoose")
 
 const userSchema=mongoose.Schema({
-    fullname:String,
+    fullname:{
+        type:String,
+        minLength:3,
+        trim:true
+    },
     email:String,
     password:String,
-    isAdmin:Boolean,
-    contact:Number,
-    picture:String,
     cart:{
         type:Array,
         default:[]
@@ -15,6 +16,8 @@ const userSchema=mongoose.Schema({
         type:Array,
         default:[]
     },
+    contact:Number,
+    picture:String,
 })
 
 

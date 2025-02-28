@@ -1,11 +1,13 @@
 const mongoose=require("mongoose")
+const dbr=require('debug')("development:mongoose")
+const config=require("config")
 
-mongoose.connect("mongodb://127.0.0.1:27017/scratch-project")
+mongoose.connect(`${config.get("MONGODB_URI")}/scratch-project`)
 .then(function(){
-    console.log("Connected to DB")
+    dbr("Connected to DB")
 })
 .catch(function(err){
-    console.log("Something went wrong while connecting to DB" + err);
+    dbr("Something went wrong while connecting to DB" + err);
 })
 
 

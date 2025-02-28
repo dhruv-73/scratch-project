@@ -1,0 +1,68 @@
+<%- include('./partials/header') %>
+<% if(success.length >0) { %>
+  <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-500 font-semibold rounded-md p-3">
+      <span class="mt-1 mb-1 text-white inline-block"><%=success%></span>
+  </div>
+<%}%>
+<div class="w-full min-h-[90vh] bg-zinc-200 flex gap-50">
+  <div class="flex flex-col ml-5 gap-1">
+    <a href="/shop" class="inline-block font-semibold">All Products</a>
+    <a href="/owners/admin" class="inline-block font-semibold">Create new product</a>
+  </div>
+  <div class="mt-5">
+    <h1 class="font-bold text-xl mb-5">Create New Product</h1>
+    <p class="font-bold mb-2">Product Details</p>
+    <form action="/products/create" method="post" enctype="multipart/form-data">
+      <label for="image" class="block font-semibold mb-1">Product Image</label>
+      <input
+        type="file"
+        name="image"
+        class="block bg-zinc-300 px-2 py-1 border-1 rounded-md mb-4"
+      />
+      <input
+        type="text"
+        name="name"
+        placeholder="Product Name"
+        class="px-3 py-2 rounded-md outline-none border-1 border-zinc-500 w-[310px] mb-3 mr-3"
+      />
+      <input
+        type="number"
+        name="price"
+        placeholder="Product Price"
+        class="px-3 py-2 rounded-md outline-none border-1 border-zinc-500 w-[310px]"
+      />
+      <input
+        type="number"
+        name="discount"
+        placeholder="Discount price"
+        class="block px-3 py-2 rounded-md outline-none border-1 border-zinc-500 w-[310px] mb-3"
+      />
+      <label for="" class="block mb-2 font-bold">Panel Details</label>
+      <input
+        type="text"
+        name="bgcolor"
+        placeholder="Background Color"
+        class="px-3 py-2 rounded-md outline-none border-1 border-zinc-500 w-[310px] mb-3 mr-3"
+      />
+      <input
+        type="text"
+        name="panelcolor"
+        placeholder="Panel Color"
+        class="px-3 py-2 rounded-md outline-none border-1 border-zinc-500 w-[310px]"
+      />
+      <input
+        type="text"
+        name="textcolor"
+        placeholder="Text Color"
+        class="block px-3 py-2 rounded-md outline-none border-1 border-zinc-500 w-[310px]"
+      />
+      <input
+        type="submit"
+        value="Create New Product"
+        class="bg-blue-500 text-white font-semibold px-3 py-2 rounded-md mt-3"
+      />
+    </form>
+  </div>
+</div>
+
+<%- include('./partials/footer') %>
