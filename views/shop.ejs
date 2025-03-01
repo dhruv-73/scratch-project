@@ -1,7 +1,42 @@
-<%- include('./partials/header') %> 
-    <div class="w-full min-h-[90vh] bg-zinc-200">
-
+<%- include('./partials/header') %>
+<div class="w-full min-h-[90vh] bg-zinc-200 flex gap-20">
+  <div class="ml-10 flex flex-col gap-30">
+    <div>
+        <label for="">sort by</label>
+        <select name="" >
+            <option value="popular">Popular</option>
+            <option value="newest">Newest</option>
+        </select>
     </div>
+    <div>
+        <p>New Collection</p>
+        <p>All Products</p>
+        <p>Discounted Products</p>
+    </div>
+    <div>
+        <p>Filter by:</p>
+        <p>Availability</p>
+        <p>Discount</p>
+    </div>
+  </div>
+  <div class="box w-[70%] flex flex-wrap gap-5">
+    <% products.forEach(function(elem){ %>
+        <div class="product w-[160px] h-[200px] ">
+            <div class="bg-[<%=elem.bgcolor%>] w-full h-[150px] overflow-hidden">
+                <img src="data:image/jpeg;base64,<%=elem.image.toString('base64')%>" alt="" class="w-full h-full object-cover">
+            </div>
+            <div class="w-full bg-[<%=elem.panelcolor%>] text-[<%=elem.textcolor%>] h-[50px] flex items-center justify-between p-3">
+                <div class="text-sm font-semibold">
+                    <p><%=elem.name%></p>
+                    <p class="tracking-tighter">&#8377 <%=elem.price%></p>
+                </div>
+                <div class="rounded-full bg-white w-[30px] h-[30px]">
+                   <p class="font-bold text-xl text-center">+</p>
+                </div>
+            </div>
+        </div>
+    <%})%>
+  </div>
+</div>
 
-
-<%- include('./partials/footer') %> 
+<%- include('./partials/footer') %>
